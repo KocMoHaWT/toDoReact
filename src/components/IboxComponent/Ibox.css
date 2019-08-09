@@ -5,6 +5,14 @@
     padding: 0;
 }
 
+.ibox .ibox--list {
+    position: absolute;
+    top: 18px;
+    left: -68px;
+    willChange: top, left;
+    xPlacement: bottom-start;
+}
+
 .ibox-title {
     background-color: #ffffff;
     border-color: #e7eaec;
