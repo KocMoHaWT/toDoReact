@@ -1,27 +1,21 @@
 import React from 'react';
 import './Ibox.css';
-import IboxTitleButton from '../IboxTitleButton'
+import IboxTitleButton from './IboxTitleButton';
+import IboxToolOptions from './IboxToolOptions';
+import IboxFooter from './IboxFooter'
 
 
 class Ibox extends React.Component {
     constructor(props) {
         super(props);
-        this.options = this.props.options.map(this.mapOptionsToList);
         this.state = {
-            header: 'Some Header ',
+            title: 'Some Header ',
             subTitle: 'Some Subtitle',
             content: true,
             iboxBlock: true,
             showOptions: false
         }
     }
-
-    mapOptionsToList = (elem) => (
-        <li key={elem}>
-            <a href='#' className='dropdown-item'>{elem}</a>
-        </li>
-    );
-
 
     toggleContent = () => {
         this.setState((old) => {
@@ -47,12 +41,12 @@ class Ibox extends React.Component {
         }
         return (
             <div className='ibox'>
-                {this.renderTitle()}
+                {this.renderHeader()}
                 {this.renderContent()}
+                {this.renderFooter()}
             </div>
         )
     }
-
 
     renderButtons() {
         const buttons = [];
@@ -75,7 +69,7 @@ class Ibox extends React.Component {
                 classIcon={'fa fa-wrench'}
                 action={this.showOptions}/>)
             buttons.push(this.state.showOptions ?
-                <ul className='dropdown-menu show ibox--list'>{this.options}</ul> : null
+                       <IboxToolOptions optionsBody={this.props.optionsBody}/> : null
             )
         }
 
@@ -88,16 +82,22 @@ class Ibox extends React.Component {
         return <div className='ibox-tools'>{buttons}</div>;
     }
 
-    renderTitle() {
+    renderHeader() {
         return (
-            <div className='ibox-title'>
-                <h5>
-                    {this.state.header}
+            <div className='ibox-header'>
+                <h5 className='ibox-title'>
+                    {this.state.title}
                     <small>{this.state.subTitle}</small>
                 </h5>
                 {this.renderButtons()}
             </div>
         )
+    }
+
+    renderFooter() {
+        if(this.props.footerBody && this.state.content) {
+            return <IboxFooter footerBody={this.props.footerBody}/>
+        }
     }
 
     renderContent() {
