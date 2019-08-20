@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider} from 'react-redux'
+import store from './redux/store'
 import Ibox from './components/IboxComponent/Ibox';
 import './App.css';
-import { AlphaPicker  } from 'react-color';
+import OptionColor from './testComponents/OptionColor'
+import Rectangle from './testComponents/Rectangle'
 
 class App extends React.Component{
 
@@ -19,33 +22,38 @@ class App extends React.Component{
             </ul>
         );
         return (
-            <div className="wrapper-content">
-                <div className="row">
-                    <div className="col-lg-7">
-                        < Ibox showCollapseBtn={true}
-                               showOptionsBtn={true}
-                               showCloseBtn={true}
-                               optionsBody={options}
-                               footerBody={footer}
-                        >
-                            <h5>lidjglskfdjgldkfjglkdjf</h5>
-                        </Ibox>
-                    </div>
-                    <div className="col-lg-5">
-                        < Ibox showCollapseBtn={true}
-                               showOptionsBtn={true}
-                               showCloseBtn={true}
-                               optionsBody={options}
+            <Provider store={store}>
+                <div className="wrapper-content">
+                    <div className="row">
+                        <div className="col-lg-7">
+                            < Ibox showCollapseBtn={true}
+                                   showOptionsBtn={true}
+                                   showCloseBtn={true}
+                                   optionsBody={
+                                        <OptionColor/>
+                                   }
+                                   footerBody={footer}
+                            >
+                                <Rectangle/>
+                            </Ibox>
+                        </div>
+                        <div className="col-lg-5">
+                            < Ibox showCollapseBtn={true}
+                                   showOptionsBtn={true}
+                                   showCloseBtn={true}
+                                   optionsBody={options}
 
-                        >
-                           <AlphaPicker />
-                        </Ibox>
+                            >
+
+                            </Ibox>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </Provider>
         )
     }
 }
+
+
 
 export default App
