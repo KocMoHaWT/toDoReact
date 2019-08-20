@@ -1,9 +1,9 @@
 import React from 'react';
 import Ibox from './components/IboxComponent/Ibox';
 import './App.css';
+import { AlphaPicker  } from 'react-color';
+
 class App extends React.Component{
-
-
 
     render() {
         const  footer = (
@@ -38,7 +38,7 @@ class App extends React.Component{
                                optionsBody={options}
 
                         >
-                            <h5>lidjglskfdjgldkfjglkdjf</h5>
+                           <AlphaPicker />
                         </Ibox>
                     </div>
                 </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp, faChevronDown, faWrench, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './Ibox.css';
 import IboxTitleButton from './IboxTitleButton';
 import IboxToolOptions from './IboxToolOptions';
@@ -59,14 +61,14 @@ class Ibox extends React.Component {
         if (showCollapseBtn) {
             buttons.push(<IboxTitleButton
                 key={buttons.length}
-                classIcon={this.state.content ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}
+                icon={this.state.content ? faChevronUp : faChevronDown}
                 state={this.state} action={this.toggleContent}/>)
         }
 
         if (showOptionsBtn) {
             buttons.push(<IboxTitleButton
                 key={buttons.length}
-                classIcon={'fa fa-wrench'}
+                icon={faWrench}
                 action={this.showOptions}/>)
             buttons.push(this.state.showOptions ?
                        <IboxToolOptions optionsBody={this.props.optionsBody}/> : null
@@ -76,7 +78,7 @@ class Ibox extends React.Component {
         if (showCloseBtn) {
             buttons.push(<IboxTitleButton
                 key={buttons.length}
-                classIcon={'fa fa-times'}
+                icon={faTimes}
                 action={this.close}/>);
         }
         return <div className='ibox-tools'>{buttons}</div>;

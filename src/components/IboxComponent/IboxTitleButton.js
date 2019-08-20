@@ -1,12 +1,15 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 class IboxTitleButton extends React.Component{
 
     render() {
         return (
-            <i className={this.props.classIcon} onClick={this.props.action}></i>
+            <FontAwesomeIcon icon={this.props.icon} onClick={this.props.action} />
+    )
 
-        )
+
     }
 }
 

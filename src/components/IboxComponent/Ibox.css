@@ -55,7 +55,7 @@ small {
     text-align: right;
 }
 
-.ibox-tools i {
+.ibox-tools svg {
     cursor: pointer;
     margin-left: 5px;
     font-size: 14px;
