@@ -1,0 +1,53 @@
+body {
+    background-color: #e7eaec;
+}
+
+.wrapper-content {
+    padding: 20px 20px 40px;
+}
+
+.footer {
+
+}
+
+.ibox-footer {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 15px 90px 8px 15px;
+    min-height: 48px;
+    position: relative;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+}
+
+.ibox-footer h5 {
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: none;
+    position: relative;
+}
+
+.ibox-footer .absolute {
+    top: 27px;
+    position: absolute;
+    right: 4px;
+    color: #bbbbbb;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
