@@ -5,14 +5,21 @@ import {connect} from "react-redux";
 
 class OptionColor extends React.Component {
 
-    handleColor = (color, action) => {
-        return this.props.onClick(color.hex);
+    handleColor = () => {
+        const red = document.getElementById('red').value;
+        const green = document.getElementById('green').value;
+        const blue = document.getElementById('blue').value;
+        return this.props.onClick('rgb(' + red + ',' + green + ',' + blue + ')');
     };
 
     render() {
         return (
             <div className={'someClass'}>
-                <ChromePicker onChange={this.handleColor} />
+                {/*<ChromePicker onChange={this.handleColor} />*/}
+                <input type="range" id={'red'} min={0} max={255}/>
+                <input type="range" id={'green'} min={0} max={255}/>
+                <input type="range" id={'blue'} min={0} max={255}/>
+                <button onClick={this.handleColor}>Pick</button>
             </div>
         );
     }
